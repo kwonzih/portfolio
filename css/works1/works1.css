@@ -114,6 +114,7 @@
   width: 100%;
   will-change: transform;
   transition: 300ms ease;
+  object-fit: contain;
 }
 .Works1_container .Item_container .wi .Item_wrap .IMG_wrap img.mobileImg {
   position: absolute;
@@ -121,6 +122,7 @@
   transform: translateX(-50%);
   height: auto;
   width: 40%;
+  
 }
 .Works1_container .Item_container .wi .Item_wrap .IMG_wrap .IMG_main {
   position: relative;
@@ -132,7 +134,7 @@
   aspect-ratio: 16/8;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.015);
-  overflow: hidden;
+  
   cursor: pointer;
 }
 .Works1_container .Item_container .wi .Item_wrap .IMG_wrap .IMG_main::after {
@@ -210,7 +212,7 @@
 .Works1_container .Item_container .wi .Item_wrap .info_wrap .info_main {
   max-width: 100%;
   margin-top: 20px;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: 300;
   word-break: keep-all;
 }
@@ -571,28 +573,13 @@
   width: 100%;
   max-width: 940px;
   padding-right: 20px;
-  height: 40px;
+  height: 100vh;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   box-sizing: border-box;
 }
-.Works1_container .readme_container .top .close {
-  position: absolute;
-  right: 30px;
-  top: 10px;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
-.Works1_container .readme_container .top .close::after {
-  position: absolute;
-  content: "";
-  width: 40px;
-  height: 40px;
-  background: url("../../src/img/close_icon.png") 50% 50% no-repeat;
-  background-size: 20px 20px;
-}
+
 .Works1_container .sizeUP {
   position: fixed;
   top: 50%;
