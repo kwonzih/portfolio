@@ -51,17 +51,22 @@ header .Header_container > .left {
   display: flex;
   padding-left: 10px;
 }
-header .Header_container > .left img {
+header .Header_container > .left #logo {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: auto;
   height: 37px;
-  /* filter: invert(100%); */
   cursor: pointer;
   transition: 300ms ease;
 }
-header .Header_container > .left img:hover {
+
+header .Header_container > .left #logo li:nth-child(1){
+  margin-bottom: -15px;
+  margin-left: -1px;
+}
+
+header .Header_container > .left #logo:hover {
   padding-left: 10px;
 }
 header .Header_container > .right {
@@ -124,7 +129,7 @@ header .m_menu ul li {
   .Header_container {
     padding: 0 20px !important;
   }
-  .Header_container img {
+  .Header_container #logo {
     padding-left: 0 !important;
   }
 }
@@ -144,10 +149,10 @@ header .m_menu ul li {
   .Header_container > .left {
     padding: 0 !important;
   }
-  .Header_container > .left img {
+  .Header_container > .left #logo {
     position: absolute !important;
     top: 50% !important;
-    left: 50% !important;
+    right: 0.1% !important;
     height: 32px !important;
     transform: translate(-50%, -50%) !important;
   }

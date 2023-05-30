@@ -273,11 +273,11 @@ const subImgClick = (e, index, m = false) => {
     $('.wi' + e + ' .IMG_sub').removeClass('active');
     $('.wi' + e + ' .IMG_sub').eq(index).addClass('active');
     if (m) {
-        //$('.wi' + e + ' .IMG_main').html(`<img class='mobileImg' src='./src/img/project_img/${e}_${index}.jpg' alt='프로젝트 이미지' onclick="mainImgClick(${e}, ${index}, ${m})">`);
-        document.querySelector('.wi' + e + ' .IMG_main').outerHTML = `<div class="IMG_main" onclick="mainImgClick(${e}, ${index}, ${m})"><img class='mobileImg' src='./src/img/project_img/${e}_${index}.jpg' alt='프로젝트 이미지'></div>`;
+        //$('.wi' + e + ' .IMG_main').html(`<img class='mobileImg' src='./src/img/project_img/${e}_${index}.png' alt='프로젝트 이미지' onclick="mainImgClick(${e}, ${index}, ${m})">`);
+        document.querySelector('.wi' + e + ' .IMG_main').outerHTML = `<div class="IMG_main" onclick="mainImgClick(${e}, ${index}, ${m})"><img class='mobileImg' src='./src/img/project_img/${e}_${index}.png' alt='프로젝트 이미지'></div>`;
     } else {
-        //$('.wi' + e + ' .IMG_main').html(`<img src='./src/img/project_img/${e}_${index}.jpg' alt='프로젝트 이미지' onclick="mainImgClick(${e}, ${index}, ${m})">`);
-        document.querySelector('.wi' + e + ' .IMG_main').outerHTML = `<div class="IMG_main" onclick="mainImgClick(${e}, ${index}, ${m})"><img src='./src/img/project_img/${e}_${index}.jpg' alt='프로젝트 이미지'></div>`;
+        //$('.wi' + e + ' .IMG_main').html(`<img src='./src/img/project_img/${e}_${index}.png' alt='프로젝트 이미지' onclick="mainImgClick(${e}, ${index}, ${m})">`);
+        document.querySelector('.wi' + e + ' .IMG_main').outerHTML = `<div class="IMG_main" onclick="mainImgClick(${e}, ${index}, ${m})"><img src='./src/img/project_img/${e}_${index}.png' alt='프로젝트 이미지'></div>`;
     }
     $('.wi' + e + ' .IMG_main img').css({ opacity: '0' });
     $('.wi' + e + ' .IMG_main img').animate({ opacity: '1' }, 150);
@@ -287,9 +287,9 @@ const mainImgClick = (e, index, m = false) => {
     $('.sizeUP').addClass('visible');
     $('.sizeUP').focus();
     if (m) {
-        $('.sizeUP .ct').html(`<img class='mobileImg' src='./src/img/project_img/${e}_${index}.jpg' alt='프로젝트 이미지'>`);
+        $('.sizeUP .ct').html(`<img class='mobileImg' src='./src/img/project_img/${e}_${index}.png' alt='프로젝트 이미지'>`);
     } else {
-        $('.sizeUP .ct').html(`<img src='./src/img/project_img/${e}_${index}.jpg' alt='프로젝트 이미지'>`);
+        $('.sizeUP .ct').html(`<img src='./src/img/project_img/${e}_${index}.png' alt='프로젝트 이미지'>`);
     }
     $('.sizeUP .ct').scrollTop(0);
     $('html').css('overflow', 'hidden');
@@ -327,19 +327,21 @@ $('.sizeUP .ct, .sizeUP .top .close').click(() => {
     speed = defaultSpeed;
 })
 
+//work 갯수 수정
+
 $('.Item_nav_next, .m_nav_wrap .next').click(() => {
     $('.wi .info_main .more_wrap').slideUp(150);
     $('.wi .info_main span').text('더보기');
     if (!isClick) {
         isClick = true;
-        if (worksItem == 5) {
+        if (worksItem == 2) {
             $('#nav' + worksItem).removeClass("active");
             $('.wi' + worksItem).fadeOut(250, "swing", () => {
                 $('.wi' + 0).stop().fadeIn(250, "swing", () => { worksItem = 0; isClick = false; });
                 $('#nav' + 0).addClass("active");
             });
         }
-        if (worksItem < 5) {
+        if (worksItem < 2) {
             $('#nav' + worksItem).removeClass("active");
             $('.wi' + worksItem).fadeOut(250, "swing", () => {
                 $('.wi' + (worksItem + 1)).stop().fadeIn(250, "swing", () => { worksItem++; isClick = false; });
@@ -370,7 +372,7 @@ $('.Item_nav_prev, .m_nav_wrap .prev').click(() => {
 })
 
 
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < 3; i++) {
     $('#nav' + i).on('click', (event) => {
         if (!isClick) {
             isClick = true;
@@ -379,40 +381,6 @@ for (let i = 0; i < 6; i++) {
     });
 }
 
-
-//** WORKS 2 **//
-
-// 갤러리 자동 이동
-$(".Visual_wrap").append($(".Visual_wrap ul").clone());
-
-
-
-const visualMove = () => {
-    $(".Visual_wrap").css({ left: `${leftValue}px` });
-    if ($(".Visual_wrap").offset().left <= -1 * $('.Visual_wrap ul').outerWidth()) {
-        leftValue = 0;
-    }
-    leftValue -= speed;
-}
-
-$(".Visual_wrap").hover(() => {
-    if(defaultSpeed !== 0)
-    speed = 0.3;
-}, () => {
-    speed = defaultSpeed;
-})
-
-
-
-$('.Visual_wrap').on('mousedown', function () {
-    speed = 0;
-}).on('mouseup', function () {
-    speed = 0.3;
-}).on('mouseleave', function () {
-    speed = defaultSpeed;
-});
-
-vMove = setInterval(() => visualMove(), 10);
 
 
 
