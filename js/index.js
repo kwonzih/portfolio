@@ -357,8 +357,8 @@ $('.Item_nav_prev, .m_nav_wrap .prev').click(() => {
         if (worksItem == 0) {
             $('#nav' + worksItem).removeClass("active");
             $('.wi' + worksItem).fadeOut(250, "swing", () => {
-                $('.wi' + 5).stop().fadeIn(250, "swing", () => { worksItem = 5; isClick = false; });
-                $('#nav' + 5).addClass("active");
+                $('.wi' + 2).stop().fadeIn(250, "swing", () => { worksItem = 5; isClick = false; });
+                $('#nav' + 2).addClass("active");
             });
         }
         if (worksItem > 0) {
@@ -380,6 +380,41 @@ for (let i = 0; i < 3; i++) {
         }
     });
 }
+
+//** WORKS 2 **//
+
+// 갤러리 자동 이동
+$(".Visual_wrap").append($(".Visual_wrap ul").clone());
+
+
+
+const visualMove = () => {
+    $(".Visual_wrap").css({ left: `${leftValue}px` });
+    if ($(".Visual_wrap").offset().left <= -1 * $('.Visual_wrap ul').outerWidth()) {
+        leftValue = 0;
+    }
+    leftValue -= speed;
+}
+
+$(".Visual_wrap").hover(() => {
+    if(defaultSpeed !== 0)
+    speed = 0.3;
+}, () => {
+    speed = defaultSpeed;
+})
+
+
+
+$('.Visual_wrap').on('mousedown', function () {
+    speed = 0;
+}).on('mouseup', function () {
+    speed = 0.3;
+}).on('mouseleave', function () {
+    speed = defaultSpeed;
+});
+
+vMove = setInterval(() => visualMove(), 10);
+
 
 console.clear();
 
