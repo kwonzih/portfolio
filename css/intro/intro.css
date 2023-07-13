@@ -7,7 +7,7 @@
 #Intro #typo_1 {
   position: absolute;
   width: 100%;
-  top: 37vh;
+  top: 30vh;
   z-index: 1000;
   opacity: 0;
   animation: typo_1 1000ms ease;
